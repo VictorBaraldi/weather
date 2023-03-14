@@ -4,9 +4,88 @@
   box-sizing: border-box;
 }
 
+body {
+  display: flex;
+  color: white;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: end;
+  font-family: 'Roboto', sans-serif;
+  transition: 0.5s;
+}
+
+img {
+  width: 100%;
+}
+
+input {
+  padding: 0.8rem 2rem;
+  border: none;
+  width: 28rem;
+  border-radius: 2rem 0 0 2rem;
+  background-color: #aaa;
+  font-size: 1.2rem;
+  outline: none;
+  opacity: 0.8;
+  color: white;
+}
+
+.buscar {
+  align-self: center;
+  transform: translateX(-20px);
+  animation: leftIn 0.3s forwards;
+}
+
+.buscar-form {
+  display: flex;
+  align-items: center;
+}
+
+.buscar-erro {
+  margin-left: 1.5rem;
+  margin-top: 0.4rem;
+}
+
+.btnEnviar {
+  cursor: pointer;
+  background-color: #aaa;
+  padding: 0.61rem 1.5rem;
+  border-radius: 0 2rem 2rem 0;
+  opacity: 0.8;
+}
+
+.btnEnviar img {
+  width: 1.5rem;
+}
+
+.info {
+  margin-top: 32.5vh;
+  padding: 10px 30px;
+  display: grid;
+  grid-template-columns: max-content auto;
+  align-items: center;
+}
+
+.info-container {
+  grid-row: 1 / -3;
+  margin-left: 1rem;
+  display: grid;
+}
+
+.info-container h2 {
+  font-size: 1.8rem;
+}
+
+.info-temp {
+  grid-row: 1 / -3;
+  font-size: 6rem;
+  font-weight: 400;
+}
+
 .info-clima {
   display: flex;
   align-items: center;
+  margin-top: 0.75rem;
 }
 
 .info-dados {
@@ -16,4 +95,13 @@
 .info-dados div {
   display: flex;
   align-items: center;
+  margin-right: 1rem;
+}
+
+.info-dados img {
+  margin-right: 0.2rem;
+}
+
+.info-dados img:first-child {
+  margin-right: 0.35rem;
 }
