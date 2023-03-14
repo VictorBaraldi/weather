@@ -2,6 +2,7 @@ import DefinirHora from './modules/getHour.js';
 import BuscaTempo from './modules/buscaTempo.js';
 
 const hora = new DefinirHora();
+hora.definirHora();
 const buscaTempo = new BuscaTempo('Bebedouro', hora.hora);
 
 const btn = document.querySelector('.btnEnviar');
@@ -13,4 +14,4 @@ btn.addEventListener('click', (e) => {
   buscaTempo.init();
 });
 
-console.log(hora.dataCompleta);
+buscaTempo.init();

@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Weather</title>
+  <link rel="stylesheet" href="./style/style.css">
 </head>
 
 <body>
@@ -15,6 +16,28 @@
       <input type="text" id="cidade" name="cidade">
       <button class="btnEnviar">Ver Clima</button>
     </form>
+  </div>
+
+  <div class="info">
+    <h2 class="info-cidade"></h2>
+    <p class="info-data"></p>
+    <div class="info-clima">
+      <p data-clima="temp"></p>
+      <div class="info-dados">
+        <div>
+          <img src="assets/water_drop.svg" alt="Gota de chuva">
+          <p data-clima="chuva"></p>
+        </div>
+        <div>
+          <img src="assets/arrow_upward.svg" alt="Seta para cima">
+          <p data-clima="max"></p>
+        </div>
+        <div>
+          <img src="assets/arrow_downward.svg" alt="Seta para baixo">
+          <p data-clima="min"></p>
+        </div>
+      </div>
+    </div>
   </div>
   <script src="./script/script.js" type="module"></script>
 </body>

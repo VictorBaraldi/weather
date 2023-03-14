@@ -5,6 +5,10 @@ export default class BuscaTempo {
   constructor(cidade, hora) {
     this.cidade = cidade;
     this.hora = hora;
+    this.temp = document.querySelector('[data-clima="temp"]');
+    this.maxTemp = document.querySelector('[data-clima="max"]');
+    this.minTemp = document.querySelector('[data-clima="min"]');
+    this.chuva = document.querySelector('[data-clima="chuva"]');
   }
   async init() {
     await buscaCidade.init(this.cidade);
@@ -15,7 +19,15 @@ export default class BuscaTempo {
     const json = await response.json();
     const minTemp = `${Math.floor(json.daily.temperature_2m_min[0])}°C`;
     const maxTemp = `${Math.floor(json.daily.temperature_2m_max[0])}°C`;
-    const nowTemp = `${json.hourly.precipitation_probability[this.hora]}`;
-    const nowPrec = `${json.hourly.temperature_2m[this.hora]}`;
+    const nowPrec = `${json.hourly.precipitation_probability[this.hora]}%`;
+    const nowTemp = `${Math.floor(json.hourly.temperature_2m[this.hora])}°C`;
+    this.definirClima(minTemp, maxTemp, nowTemp, nowPrec);
+  }
+
+  definirClima(min, max, atual, chuva) {
+    this.maxTemp.innerHTML = max;
+    this.minTemp.innerHTML = min;
+    this.temp.innerHTML = atual;
+    this.chuva.innerHTML = chuva;
   }
 }

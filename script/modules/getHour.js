@@ -30,8 +30,16 @@ export default class DefinirHora {
     this.diaSemana = this.data.getDay();
     this.mes = this.data.getMonth();
     this.ano = this.data.getFullYear();
-    this.dataCompleta = `${this.horaCerta}:${this.minutoCerto} - ${
+    this.infoData = document.querySelector('.info-data');
+  }
+
+  dataCompleta() {
+    return `${this.horaCerta}:${this.minutoCerto} - ${
       this.dayName[this.diaSemana]
     }, ${this.dia} de ${this.monName[this.mes]} de ${this.ano}`;
+  }
+
+  definirHora() {
+    this.infoData.innerHTML = this.dataCompleta();
   }
 }
