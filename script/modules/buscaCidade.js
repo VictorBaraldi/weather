@@ -1,9 +1,17 @@
 export default class buscaCidade {
   constructor() {
-    this.latitude;
-    this.longitude;
     this.erro = null;
     this.cidade = document.querySelector('[data-clima="cidade"]');
+  }
+
+  async buscarCidade() {
+    this.latitude = window.localStorage.getItem('latitude');
+    this.longitude = window.localStorage.getItem('longitude');
+    const city = await fetch(
+      `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${this.latitude}&longitude=${this.longitude}&localityLanguage=en`,
+    );
+    const response = await city.json();
+    window.localStorage.setItem('padrao', response.city);
   }
 
   async init(cidade) {
@@ -17,10 +25,10 @@ export default class buscaCidade {
       return (this.erro = true);
     }
 
+    window.localStorage.setItem('cidade', cidade);
     this.cidade.innerHTML = cidade;
-    const latitude = json.results[0].latitude;
-    const longitude = json.results[0].longitude;
-    this.latitude = latitude;
-    this.longitude = longitude;
+    this.cidade.style.textTransform = 'capitalize';
+    window.localStorage.setItem('latitude', json.results[0].latitude);
+    window.localStorage.setItem('longitude', json.results[0].longitude);
   }
 }

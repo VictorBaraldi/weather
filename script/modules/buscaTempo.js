@@ -1,5 +1,8 @@
 import BuscaCidade from './buscaCidade.js';
+import SetImage from './background.js';
+
 const buscaCidade = new BuscaCidade();
+const background = new SetImage();
 
 export default class BuscaTempo {
   constructor(cidade, hora) {
@@ -11,22 +14,27 @@ export default class BuscaTempo {
     this.chuva = document.querySelector('[data-clima="chuva"]');
     this.vento = document.querySelector('[data-clima="vento"]');
     this.erro = document.querySelector('.buscar-erro');
+    this.latitude;
+    this.longitude;
   }
 
   async init() {
     await buscaCidade.init(this.cidade);
     if (buscaCidade.erro === true) {
-      this.erro.style.opacity = 1;
+      this.erro.classList.add('animeLeft');
       return;
     } else {
+      this.latitude = window.localStorage.getItem('latitude');
+      this.longitude = window.localStorage.getItem('longitude');
+      await background.init();
       await this.fetchDados();
     }
   }
 
   async fetchDados() {
-    this.erro.style.opacity = 0;
+    this.erro.classList.remove('animeLeft');
     const response = await fetch(
-      `https://api.open-meteo.com/v1/forecast?latitude=${buscaCidade.latitude}&longitude=${buscaCidade.longitude}&hourly=temperature_2m,precipitation_probability,windspeed_10m&daily=temperature_2m_max,temperature_2m_min&forecast_days=1&timezone=America%2FSao_Paulo`,
+      `https://api.open-meteo.com/v1/forecast?latitude=${this.latitude}&longitude=${this.longitude}&hourly=temperature_2m,precipitation_probability,windspeed_10m&daily=temperature_2m_max,temperature_2m_min&forecast_days=1&timezone=America%2FSao_Paulo`,
     );
     const json = await response.json();
     const minTemp = `${Math.floor(json.daily.temperature_2m_min[0])}°C`;
