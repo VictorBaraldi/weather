@@ -118,3 +118,29 @@ input {
 .info-dados img:first-child {
   margin-right: 0.35rem;
 }
+
+@media (max-width: 600px) {
+  input {
+    width: 16rem;
+  }
+  .info {
+    padding: 15px;
+  }
+
+  .info-temp {
+    font-size: 3rem;
+  }
+
+  .info-container h2 {
+    font-size: 1.5rem;
+  }
+
+  .info-data {
+  }
+}
+
+@media (max-width: 350px) {
+  input {
+    width: 13rem;
+  }
+}
