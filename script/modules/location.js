@@ -16,7 +16,7 @@ export default class UserLocation {
       window.localStorage.setItem('refresh', 'yes');
       setTimeout(() => {
         window.location.reload();
-      }, 100);
+      }, 200);
     }
   }
 }

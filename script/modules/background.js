@@ -67,8 +67,7 @@ export default class SetImage {
   async init() {
     const largura = window.screen.width;
     const altura = window.screen.height;
-    const random = Math.floor(Math.random() * this.photos.length - 1);
-    console.log(`${this.photos[random]}/${largura}/${altura}`);
+    const random = Math.floor(Math.random() * (this.photos.length - 1));
     const response = await fetch(
       `https://picsum.photos/id/${this.photos[random]}/${largura}/${altura}`,
     );

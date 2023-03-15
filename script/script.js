@@ -9,10 +9,8 @@ location.init();
 const hora = new DefinirHora();
 hora.definirHora();
 
-if (window.localStorage.getItem('padrao') === null) cidade = 'Paris';
+if (window.localStorage.getItem('padrao') === null) cidade = 'São Paulo';
 else cidade = window.localStorage.getItem('padrao');
-console.log(cidade);
-
 const buscaTempo = new BuscaTempo(cidade, hora.hora);
 buscaTempo.init();
 
