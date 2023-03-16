@@ -121,10 +121,17 @@ input {
 
 @media (max-width: 600px) {
   input {
-    width: 16rem;
+    width: 15.5rem;
   }
+
+  body {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
   .info {
     padding: 15px;
+    margin-top: 0px;
   }
 
   .info-temp {
@@ -135,7 +142,9 @@ input {
     font-size: 1.5rem;
   }
 
-  .info-data {
+  .buscar {
+    margin-bottom: 40vh;
+    margin-top: 20vh;
   }
 }
 
