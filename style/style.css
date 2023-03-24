@@ -121,7 +121,7 @@ input {
 
 @media (max-width: 600px) {
   input {
-    width: 15.5rem;
+    width: 18rem;
   }
 
   body {
@@ -131,7 +131,8 @@ input {
 
   .info {
     padding: 15px;
-    margin-top: 0px;
+    grid-template-columns: max-content max-content;
+    margin: 0 auto;
   }
 
   .info-temp {
@@ -143,13 +144,32 @@ input {
   }
 
   .buscar {
-    margin-bottom: 40vh;
-    margin-top: 20vh;
+    margin-bottom: 45vh;
+    margin-top: 5vh;
   }
 }
 
-@media (max-width: 350px) {
+@media (max-width: 450px) {
   input {
-    width: 13rem;
+    width: 15rem;
+  }
+
+  .info-dados {
+    display: grid;
+    grid-template-columns: 70px 70px;
+    gap: 10px;
+  }
+
+  .info-dados img {
+    max-height: 1rem;
+  }
+
+  .info-dados div {
+    margin-right: 0;
+    justify-self: start;
+  }
+
+  .info-data {
+    font-size: 0.9rem;
   }
 }
